@@ -9,38 +9,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Test Post - Digital Forensics</title>
-<meta name="description" content="Testing out a blog post.">
+<!-- begin _includes/seo.html --><title>Forensics Introduction - Digital Forensics</title>
+<meta name="description" content="I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn’t thought about coming into this course: the science component! The key things that stood out were the importance of the Scientific Method, and the various components of the Law (such as Rules of Evidence, Admissibility etc.). The most important aspect of course is ABD: Always Be Documenting!">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Test Post">
-<meta property="og:url" content="http://localhost:4000/test-post/">
+<meta property="og:title" content="Forensics Introduction">
+<meta property="og:url" content="http://localhost:4000/Forensics-Introduction/">
 
 
-  <meta property="og:description" content="Testing out a blog post.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-08-08T00:00:00+10:00">
+  <meta property="og:description" content="I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn’t thought about coming into this course: the science component! The key things that stood out were the importance of the Scientific Method, and the various components of the Law (such as Rules of Evidence, Admissibility etc.). The most important aspect of course is ABD: Always Be Documenting!">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2018-08-03T00:00:00+10:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/test-post/">
+
+<link rel="canonical" href="http://localhost:4000/Forensics-Introduction/">
 
 
 
@@ -248,15 +248,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Test Post">
-    <meta itemprop="description" content="Testing out a blog post.">
-    <meta itemprop="datePublished" content="August 08, 2018">
+    <meta itemprop="headline" content="Forensics Introduction">
+    <meta itemprop="description" content="I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn’t thought about coming into this course: the science component! The key things that stood out were the importance of the Scientific Method, and the various components of the Law (such as Rules of Evidence, Admissibility etc.). The most important aspect of course is ABD: Always Be Documenting!">
+    <meta itemprop="datePublished" content="August 03, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Test Post
+          <h1 id="page-title" class="page__title" itemprop="headline">Forensics Introduction
 </h1>
           
         </header>
@@ -264,20 +264,50 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Testing out a blog post.</p>
+        <p>I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn’t thought about coming into this course: the <em>science</em> component! The key things that stood out were the importance of the Scientific Method, and the various components of the Law (such as Rules of Evidence, Admissibility etc.). The most important aspect of course is ABD: <strong>A</strong>lways <strong>B</strong>e <strong>D</strong>ocumenting!</p>
 
-<h3 id="heres-some-code-to-try-out">Here’s some code to try out</h3>
+<p><img src="/assets/images/abd.png" alt="" /></p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#import &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> 
-<span class="p">{</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"C is the best!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<p><em>Image from <a href="&quot;https://webcms3.cse.unsw.edu.au/COMP6445/18s2/resources/20138&quot;">Lecture Slides</a>, adapted from <a href="&quot;https://youtu.be/LHgQSwgKygk?t=1m18s&quot;">https://youtu.be/LHgQSwgKygk?t=1m18s</a></em></p>
 
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+<p>When we discussed the forensic incident response field, I realised that this could be something that I would be interested in doing further. It’s very interesting to see how this methodical approach can be applied to a real-time situation. Hopefully there will be some challenges simulating this during the course (and if not, I’ll have to make one).</p>
 
-<h2 id="the-end-">The End !</h2>
+<h2 id="tooling-notes-from-the-first-tutorials">Tooling: Notes from the First Tutorials</h2>
+<p>Some notes from the tools I installed during the Week 2 tutorial (before lecture).</p>
+<ul>
+  <li>Basic Commandline Tools
+    <ul>
+      <li><code class="highlighter-rouge">dd</code> - convert and copy drives - doesn’t use the file system, interracts with drive directly</li>
+      <li><code class="highlighter-rouge">fdisk</code> - formatting drives</li>
+      <li><code class="highlighter-rouge">shread</code> - destroys data (completely…no really, completely). Perform pass throughs of the disk - tries to access each individual address on the disk (writes garbage or 0’s). After 1 pass, it may not completely destroy the data</li>
+      <li><code class="highlighter-rouge">file</code> - estimates type of file. Often for images</li>
+      <li><code class="highlighter-rouge">strings</code> - searches for strings in a file</li>
+    </ul>
+  </li>
+  <li>Extra Tools (I will look further into these later)
+    <ul>
+      <li><code class="highlighter-rouge">bmap</code></li>
+      <li><code class="highlighter-rouge">blkls</code> - list blocks - see which device you are using</li>
+      <li><code class="highlighter-rouge">tsk/tct</code></li>
+      <li><code class="highlighter-rouge">gdb</code> - binaries (obviously)</li>
+      <li><code class="highlighter-rouge">steghide</code> - steganography analyser</li>
+    </ul>
+  </li>
+  <li>Full Tooling environments
+    <ul>
+      <li>autopsy - takes forensic image of machine</li>
+      <li>redline (similar - Windows only)</li>
+      <li>ftk imager - industry standard at performing an ‘acquisition’ of a machine. A real pain to download without giving them an email address.</li>
+      <li>SIFT - The “Kali” of Forensics. Note: take a snapshot immediately after installing VM so it can be easily reset</li>
+    </ul>
+  </li>
+  <li>Memory Analysis
+    <ul>
+      <li>Volatility</li>
+      <li>rekall</li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -288,7 +318,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-08T00:00:00+10:00">August 08, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-03T00:00:00+10:00">August 03, 2018</time></p>
         
       </footer>
 
