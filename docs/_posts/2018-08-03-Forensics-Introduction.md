@@ -2,7 +2,7 @@ I was very excited to begin lectures for Forensics this week. This first overvie
 
 ![]({{"/assets/images/abd.png"}})
 
-_Image from [Lecture Slides]("https://webcms3.cse.unsw.edu.au/COMP6445/18s2/resources/20138"), adapted from [https://youtu.be/LHgQSwgKygk?t=1m18s]("https://youtu.be/LHgQSwgKygk?t=1m18s")_
+_Image from [Lecture Slides](<https://webcms3.cse.unsw.edu.au/COMP6445/18s2/resources/20138>), adapted from <https://youtu.be/LHgQSwgKygk?t=1m18s>_
 
 When we discussed the forensic incident response field, I realised that this could be something that I would be interested in doing further. It's very interesting to see how this methodical approach can be applied to a real-time situation. Hopefully there will be some challenges simulating this during the course (and if not, I'll have to make one).
 
