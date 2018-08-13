@@ -1,0 +1,438 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.12.1 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Week 03 Challenge - Digital Forensics</title>
+<meta name="description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Digital Forensics">
+<meta property="og:title" content="Week 03 Challenge">
+<meta property="og:url" content="http://localhost:4000/2018/08/07/Week-03-Challenge.html">
+
+
+  <meta property="og:description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-08-07T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/2018/08/07/Week-03-Challenge.html">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Hogan Richardson",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Digital Forensics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Digital Forensics</a>
+        <ul class="visible-links">
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        
+        <a href="https://hoganrichardson.github.io/forensics/">
+          <img src="/assets/images/logo-black.png" alt="Hogan Richardson" itemprop="image">
+        </a>
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <a href="https://hoganrichardson.github.io/forensics/"><h3 class="author__name" itemprop="name">Hogan Richardson</h3></a>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Student in cs6845 Digital Forensics, 18s2
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">UNSW | CSE</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Week 03 Challenge">
+    <meta itemprop="description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
+    <meta itemprop="datePublished" content="August 07, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Week 03 Challenge
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>The challenge for this week is to work on a <code class="highlighter-rouge">.dmg</code> image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of <a href="/assets/images/abd.png">Batman</a>, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.</p>
+
+<p>I will not be releasing the flags (just yet). They will be added to this blog post at the end of next week.</p>
+
+<h2 id="journal">Journal</h2>
+
+<p><i class="fas fa-user-md"></i> Hogan Richardson</p>
+
+<p><i class="far fa-clock"></i> 2018-08-09</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job #</th>
+      <th>Journal Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>z5112937_c6845_0001</td>
+      <td>Evidence Analysis</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="log">Log</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Journal Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0918</td>
+      <td>Downloaded file from Google Drive</td>
+    </tr>
+    <tr>
+      <td>0918</td>
+      <td>Calculated MD5 Hash of the file. This hash will be recalculated and compared to this copy to verify that I haven’t altered the image in some way whilst investigating. <code class="highlighter-rouge">92b359fd11ab1753c4d151017f45ad02</code></td>
+    </tr>
+    <tr>
+      <td>0920</td>
+      <td>Made a copy of the image called <code class="highlighter-rouge">hfsplus-working.dmg</code></td>
+    </tr>
+    <tr>
+      <td>0920</td>
+      <td>Performed a <code class="highlighter-rouge">strings</code> analysis on the file. This revealed two flags immediately. It also indicated that there was an <code class="highlighter-rouge">svg</code> fie on the image somewhere (Lines 37-130). At the end of the file there is some sort of Apple plist-like file. At line 2709-2718 is a markdown file.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Strings Output: <a href="https://drive.google.com/file/d/1kS3E5m6hnPOy8baUloQEx-y4TfEi0MI5/view?usp=sharing"><i class="fas fa-file-alt"></i></a>  <code class="highlighter-rouge">md5: 502b68c01a3401b531e4219882a42f6d</code></td>
+    </tr>
+    <tr>
+      <td>0927</td>
+      <td>Mounted the image on my file system (<code class="highlighter-rouge">hdiutil attach hfsplus-working.dmg</code>) and explored the directory structure. Used the <code class="highlighter-rouge">ls -l@</code> command (macOS) to see additional metadata files.</td>
+    </tr>
+    <tr>
+      <td>0944</td>
+      <td><strong>level0</strong> contains flag.txt file. By performing a base64decode on this, the flag is revealed.</td>
+    </tr>
+    <tr>
+      <td>0950</td>
+      <td><strong>level1</strong> contains several direectories, with several text files. All these text files contain a single line (which seems to be a base64-encoded value). I wrote a <a href="#lssh-script">short script</a> which cat’d out all these files, and piped this through less. As I scrolled through, I noticed 40 identical values, so I decoded this value, and it revealed the flag.</td>
+    </tr>
+    <tr>
+      <td>1003</td>
+      <td><strong>level2</strong> contained a file <code class="highlighter-rouge">guess.what</code>. By running the <code class="highlighter-rouge">file</code> command, it estiomated that this was a .zip file (which could be a false positive…). When I <code class="highlighter-rouge">cat</code> this file, there is the text ‘flag2.jpg’, which may indicate that this is some sort of image.</td>
+    </tr>
+    <tr>
+      <td>1012</td>
+      <td>After making a copy of <code class="highlighter-rouge">guess.what</code>, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="appendix">Appendix</h2>
+<h3 id="lssh-script"><code class="highlighter-rouge">ls.sh</code> script</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>0..39<span class="o">}</span>
+<span class="k">do
+   for </span>j <span class="k">in</span> <span class="o">{</span>0..40<span class="o">}</span>
+   <span class="k">do
+      </span><span class="nb">cat</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">/</span><span class="nv">$j</span><span class="s2">.txt"</span>
+   <span class="k">done
+done</span></code></pre></figure>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-07T00:00:00+10:00">August 07, 2018</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2018/08/03/Forensics-Introduction.html" class="pagination--pager" title="Forensics Introduction
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Hogan Richardson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+  </body>
+</html>
