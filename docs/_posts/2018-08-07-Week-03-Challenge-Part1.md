@@ -28,6 +28,8 @@ I will not be releasing the flags in this post. The idea of the journal is that 
 | 1003 | **level2** contained a file `guess.what`. By running the `file` command, it estiomated that this was a .zip file (which could be a false positive...). When I `cat` this file, there is the text 'flag2.jpg', which may indicate that this is some sort of image. |
 | 1012 | After making a copy of `guess.what`, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder). 
 
+... to be continued
+
 ## Appendix
 ### `ls.sh` script
 {% highlight bash %}
