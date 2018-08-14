@@ -142,6 +142,117 @@
 
 <div id="main" role="main">
   
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        
+        <a href="https://hoganrichardson.github.io/forensics/">
+          <img src="/assets/images/logo-black.png" alt="Hogan Richardson" itemprop="image">
+        </a>
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <a href="https://hoganrichardson.github.io/forensics/"><h3 class="author__name" itemprop="name">Hogan Richardson</h3></a>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Student in cs6845 Digital Forensics, 18s2
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+		<a href="http://cse.unsw.edu.au/">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">UNSW | CSE</span>
+		</a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/HoganRichardson" itemprop="sameAs">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Tools">
@@ -155,6 +266,11 @@
           <h1 id="page-title" class="page__title" itemprop="headline">Tools
 </h1>
           
+      <footer class="page__meta">
+        
+        
+		<br>
+      </footer>
         </header>
       
 
@@ -163,14 +279,35 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> </h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#vanilla-tools">Vanilla Tools</a></li>
+  <li><a href="#disk-structurespartition-tables">Disk Structures/Partition Tables</a></li>
+  <li><a href="#macos-specific">macOS-specific</a></li>
+</ul>
             </nav>
           </aside>
         
-        <p>A list of tools I have used/been exposed to</p>
+        <p>This page contains a list of tools I have used/been exposed to throughout forensics, with a short description of the usefullness of each.</p>
+
+<h1 id="command-line-utilities">Command-line Utilities</h1>
+<h2 id="vanilla-tools">Vanilla Tools</h2>
 <ul>
-  <li>coming soon</li>
+  <li><code class="highlighter-rouge">dd</code> performs a 1:1/byte-for-byte copy of a file/folder</li>
 </ul>
+
+<h2 id="disk-structurespartition-tables">Disk Structures/Partition Tables</h2>
+<ul>
+  <li><code class="highlighter-rouge">lsblk -a</code></li>
+  <li><code class="highlighter-rouge">df -a</code></li>
+</ul>
+
+<h2 id="macos-specific">macOS-specific</h2>
+<ul>
+  <li><code class="highlighter-rouge">ls -l@</code> will display all ‘forks’ or Alternate Data Stream files in the directory</li>
+  <li><code class="highlighter-rouge">hdiutil</code> &amp; <code class="highlighter-rouge">diskutil</code></li>
+</ul>
+
+<p>Note: I will endeavour to add links to html man pages for the above tools where available.</p>
 
         
       </section>
@@ -180,7 +317,6 @@
         
 
 
-        
       </footer>
 
       
@@ -194,6 +330,7 @@
   
   
 </div>
+
     </div>
 
     
@@ -213,6 +350,8 @@
     
     
     
+    
+      <li><a href="https://github.com/HoganRichardson"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
     

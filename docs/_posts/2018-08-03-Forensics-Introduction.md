@@ -1,3 +1,6 @@
+---
+tags: reflection week02
+---
 I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn't thought about coming into this course: the _science_ component! The key things that stood out were the importance of the Scientific Method, and the various components of the Law (such as Rules of Evidence, Admissibility etc.). The most important aspect of course is ABD: **A**lways **B**e **D**ocumenting!
 
 ![]({{ "/assets/images/abd.png" | absolute_url }})

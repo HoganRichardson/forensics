@@ -1,3 +1,6 @@
+---
+tags: challenge journal week03
+---
 The challenge for this week is to work on a `.dmg` image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of [Batman]({{"/assets/images/abd.png"}}), I would like to make a verbose description of all steps that I have followed to analyse this image. I'm expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the 'technical' side of things this week.
 
 I will not be releasing the flags in this post. The idea of the journal is that if the steps are followed, the same results should be able to be produced.

@@ -1,3 +1,6 @@
+---
+tags: challenge writeup week03
+---
 Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn't get time to try these myself, but here are some notes from the follow-up tutorial.
 
 **hfsplusads0**

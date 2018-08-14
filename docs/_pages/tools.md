@@ -1,8 +1,8 @@
 ---
 title: Tools
-layout: single 
+#layout: single 
 permalink: /tools/
-toc: true
+#toc: true
 ---
 This page contains a list of tools I have used/been exposed to throughout forensics, with a short description of the usefullness of each.
 
