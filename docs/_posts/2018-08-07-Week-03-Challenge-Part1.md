@@ -26,9 +26,8 @@ I will not be releasing the flags in this post. The idea of the journal is that 
 | 0944 | **level0** contains flag.txt file. By performing a base64decode on this, the flag is revealed. |
 | 0950 | **level1** contains several direectories, with several text files. All these text files contain a single line (which seems to be a base64-encoded value). I wrote a [short script](#lssh-script) which cat'd out all these files, and piped this through less. As I scrolled through, I noticed 40 identical values, so I decoded this value, and it revealed the flag. | 
 | 1003 | **level2** contained a file `guess.what`. By running the `file` command, it estiomated that this was a .zip file (which could be a false positive...). When I `cat` this file, there is the text 'flag2.jpg', which may indicate that this is some sort of image. |
-| 1012 | After making a copy of `guess.what`, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder). 
-
-... to be continued
+| 1012 | After making a copy of `guess.what`, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder). It took me a while to figure this out, but really its basic security challnege stuff...the password is of course `password`! |
+| 2018-08-14 1429 | **level4** contains a pdf. Nothing in the rendered pdf had a flag, but running `strings` on the file reveals the flag. |
 
 ## Appendix
 ### `ls.sh` script
