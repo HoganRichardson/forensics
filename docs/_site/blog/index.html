@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Digital Forensics</title>
+<!-- begin _includes/seo.html --><title>Blog - Digital Forensics</title>
 <meta name="description" content="Blog for cs6445 Digital Forensics, 18s2">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Digital Forensics">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Blog">
+<meta property="og:url" content="http://localhost:4000/blog/">
 
 
 
@@ -36,7 +36,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/blog/">
 
 
 
@@ -101,7 +101,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--posts">
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
@@ -248,14 +248,29 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title"></h1>
+      <h1 id="page-title" class="page__title">Blog</h1>
     
     
 
-<h3 class="archive__subtitle">Recent Posts</h3>
 
-
+<ul class="taxonomy__index">
   
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
 
 
 
@@ -272,8 +287,8 @@
     <p class="archive__item-excerpt" itemprop="description">Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the foll...</p>
   </article>
 </div>
-
-  
+      
+        
 
 
 
@@ -290,8 +305,8 @@
     <p class="archive__item-excerpt" itemprop="description">The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the ...</p>
   </article>
 </div>
-
-  
+      
+        
 
 
 
@@ -308,9 +323,10 @@
     <p class="archive__item-excerpt" itemprop="description">I was very excited to begin lectures for Forensics this week. This first overview lecture covered some important aspects of Digital Forensics that I hadn’t t...</p>
   </article>
 </div>
-
-
-
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
 
 
   </div>

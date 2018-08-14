@@ -1,0 +1,6 @@
+# Main Line Links
+main:
+    - title: "Blog"
+      url: /blog/
+    - title: "Tools"
+      url: /tools/

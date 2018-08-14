@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Week 03 Challenge - Digital Forensics</title>
+<!-- begin _includes/seo.html --><title>Week 03 Challenge Part1 - Digital Forensics</title>
 <meta name="description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
 
 
@@ -17,8 +17,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Week 03 Challenge">
-<meta property="og:url" content="http://localhost:4000/2018/08/07/Week-03-Challenge.html">
+<meta property="og:title" content="Week 03 Challenge Part1">
+<meta property="og:url" content="http://localhost:4000/2018/08/07/Week-03-Challenge-Part1.html">
 
 
   <meta property="og:description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/2018/08/07/Week-03-Challenge.html">
+<link rel="canonical" href="http://localhost:4000/2018/08/07/Week-03-Challenge-Part1.html">
 
 
 
@@ -116,9 +116,11 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         <a class="site-title" href="/">Digital Forensics</a>
-        <ul class="visible-links">
-          
-        </ul>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tools/" >Tools</a>
+            </li></ul>
         
         <button class="search__toggle" type="button">
           <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
@@ -135,6 +137,7 @@
     </div>
   </div>
 </div>
+
 
     <div class="initial-content">
       
@@ -248,7 +251,7 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Week 03 Challenge">
+    <meta itemprop="headline" content="Week 03 Challenge Part1">
     <meta itemprop="description" content="The challenge for this week is to work on a .dmg image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of Batman, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.">
     <meta itemprop="datePublished" content="August 07, 2018">
     
@@ -256,7 +259,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Week 03 Challenge
+          <h1 id="page-title" class="page__title" itemprop="headline">Week 03 Challenge Part1
 </h1>
           
         </header>
@@ -266,7 +269,7 @@
         
         <p>The challenge for this week is to work on a <code class="highlighter-rouge">.dmg</code> image, to try and discover as many hidden flags by performing a forensic analysis on the image. And, in the spirit of <a href="/assets/images/abd.png">Batman</a>, I would like to make a verbose description of all steps that I have followed to analyse this image. I’m expecting a few things to be hidden in the Alternate Data Stream (ADS) files, since that has been the focus of the ‘technical’ side of things this week.</p>
 
-<p>I will not be releasing the flags (just yet). They will be added to this blog post at the end of next week.</p>
+<p>I will not be releasing the flags in this post. The idea of the journal is that if the steps are followed, the same results should be able to be produced.</p>
 
 <h2 id="journal">Journal</h2>
 
@@ -337,7 +340,11 @@
     </tr>
     <tr>
       <td>1012</td>
-      <td>After making a copy of <code class="highlighter-rouge">guess.what</code>, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder).</td>
+      <td>After making a copy of <code class="highlighter-rouge">guess.what</code>, renamed it with .zip extension, and attempted to unzip. It then prompted a password for flag2.jpg (the only file inside the zip folder). It took me a while to figure this out, but really its basic security challnege stuff…the password is of course <code class="highlighter-rouge">password</code>!</td>
+    </tr>
+    <tr>
+      <td>2018-08-14 1429</td>
+      <td><strong>level4</strong> contains a pdf. Nothing in the rendered pdf had a flag, but running <code class="highlighter-rouge">strings</code> on the file reveals the flag.</td>
     </tr>
   </tbody>
 </table>
@@ -377,7 +384,8 @@ done</span></code></pre></figure>
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/2018/08/14/Week-03-Challenge-Part2-Writeup.html" class="pagination--pager" title="Week 03 Challenge Part2 Writeup
+">Next</a>
     
   </nav>
 
