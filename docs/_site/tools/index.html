@@ -289,31 +289,54 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> </h4></header>
               <ul class="toc__menu">
-  <li><a href="#vanilla-tools">Vanilla Tools</a></li>
-  <li><a href="#disk-structurespartition-tables">Disk Structures/Partition Tables</a></li>
-  <li><a href="#macos-specific">macOS-specific</a></li>
+  <li><a href="#command-line-utilities">Command-line Utilities</a>
+    <ul>
+      <li><a href="#vanilla-tools">Vanilla Tools</a></li>
+      <li><a href="#disk-structurespartition-tables">Disk Structures/Partition Tables</a></li>
+      <li><a href="#macos-specific">macOS-specific</a></li>
+    </ul>
+  </li>
+  <li><a href="#complete-tooling-environments">Complete Tooling Environments</a>
+    <ul>
+      <li><a href="#push-button-forensics---full-toolsets">‘Push Button Forensics’ - Full Toolsets</a></li>
+      <li><a href="#memory-analysis">Memory Analysis</a></li>
+    </ul>
+  </li>
 </ul>
             </nav>
           </aside>
         
         <p>This page contains a list of tools I have used/been exposed to throughout forensics, with a short description of the usefullness of each.</p>
 
-<h1 id="command-line-utilities">Command-line Utilities</h1>
-<h2 id="vanilla-tools">Vanilla Tools</h2>
+<h2 id="command-line-utilities">Command-line Utilities</h2>
+<h3 id="vanilla-tools">Vanilla Tools</h3>
 <ul>
   <li><code class="highlighter-rouge">dd</code> performs a 1:1/byte-for-byte copy of a file/folder</li>
 </ul>
 
-<h2 id="disk-structurespartition-tables">Disk Structures/Partition Tables</h2>
+<h3 id="disk-structurespartition-tables">Disk Structures/Partition Tables</h3>
 <ul>
   <li><code class="highlighter-rouge">lsblk -a</code></li>
   <li><code class="highlighter-rouge">df -a</code></li>
 </ul>
 
-<h2 id="macos-specific">macOS-specific</h2>
+<h3 id="macos-specific">macOS-specific</h3>
 <ul>
-  <li><code class="highlighter-rouge">ls -l@</code> will display all ‘forks’ or Alternate Data Stream files in the directory</li>
-  <li><code class="highlighter-rouge">hdiutil</code> &amp; <code class="highlighter-rouge">diskutil</code></li>
+  <li><a href="https://ss64.com/osx/ls.html"><code class="highlighter-rouge">ls -l@</code></a> will display all ‘forks’ or Alternate Data Stream files in the directory</li>
+  <li><code class="highlighter-rouge">hdiutil</code> &amp; <code class="highlighter-rouge">diskutil</code> can be used for mounting and managing disk images/partitions</li>
+</ul>
+
+<h2 id="complete-tooling-environments">Complete Tooling Environments</h2>
+<h3 id="push-button-forensics---full-toolsets">‘Push Button Forensics’ - Full Toolsets</h3>
+<ul>
+  <li><strong><a href="https://www.sleuthkit.org/autopsy/">Autopsy</a></strong></li>
+  <li><strong><a href="https://www.fireeye.com/services/freeware/redline.html">RedLine</a></strong> - a similar tool to Autopsy (Windows only)</li>
+</ul>
+
+<h3 id="memory-analysis">Memory Analysis</h3>
+<ul>
+  <li><strong>Volatility</strong></li>
+  <li><strong>Rekall</strong></li>
 </ul>
 
 <p>Note: I will endeavour to add links to html man pages for the above tools where available.</p>
