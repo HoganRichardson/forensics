@@ -17,8 +17,11 @@ This page contains a list of tools I have used/been exposed to throughout forens
 * `hdiutil` & `diskutil` can be used for mounting and managing disk images/partitions
 
 ## Complete Tooling Environments
-### 'Push Button Forensics' - Full Toolsets
-* **[Autopsy](<https://www.sleuthkit.org/autopsy/>)**
+### Full Toolsets
+* **Sleuthkit Suite**
+	* **SIFT** - The 'Kali' of forensics
+	* **[Autopsy](<https://www.sleuthkit.org/autopsy/>)**
+	* `sleuthkit` commandline tools is what underpins Autopsy. See all the [TSK commands](<https://wiki.sleuthkit.org/index.php?title=TSK_Tool_Overview>) for details. 
 * **[RedLine](<https://www.fireeye.com/services/freeware/redline.html>)** - a similar tool to Autopsy (Windows only)
 
 ### Memory Analysis
