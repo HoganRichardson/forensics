@@ -25,4 +25,9 @@ This page contains a list of tools I have used/been exposed to throughout forens
 * **Volatility**
 * **Rekall**
 
+## File Scraping
+### Unallocated Cluster Tools
+* **Photorec** - Windows-based unallocated file carving tool
+* `bulk_extractor` - linux-based 'string'/regex extractor tool. Extracts string artefacts from the file. 
+
 Note: I will endeavour to add links to html man pages for the above tools where available.
