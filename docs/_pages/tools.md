@@ -34,3 +34,10 @@ This page contains a list of tools I have used/been exposed to throughout forens
 * `bulk_extractor` - linux-based 'string'/regex extractor tool. Extracts string artefacts from the file. 
 
 Note: I will endeavour to add links to html man pages for the above tools where available.
+
+## Windows Analysis Tools
+### Registry Analysis
+* `regedit`
+* MiTeC Windows Registry Recovery
+* RegRipper
+	* SAM plugin for inspecting user information
