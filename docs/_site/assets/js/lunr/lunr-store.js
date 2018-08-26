@@ -13,4 +13,14 @@ var store = [{
         "excerpt":"Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial. hfsplusads0 Running ls -l@ (on macOS) reveals the existance of a ‘ResourceFork’ on the README.txt file. To reveal this flag,...","categories": [],
         "tags": ["challenge","writeup","week03"],
         "url": "http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html",
+        "teaser":null},{
+        "title": "Week 04 Challenge Journal",
+        "excerpt":"Journal  Hogan Richardson  2018-08-19 (start)             Job #      Journal Type                  z5112937_c6845_0002      Evidence Analysis      Log             Time      Journal Notes                  1740      Downloaded the file              1741      Unziped the file                            ","categories": [],
+        "tags": ["week04","challenge","journal"],
+        "url": "http://localhost:4000/2018/08/19/Week-04-Challenge-Journal.html",
+        "teaser":null},{
+        "title": "Drive Forensics Reflection",
+        "excerpt":"Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means. One of the things that stood out to me was the...","categories": [],
+        "tags": ["reflection","week05"],
+        "url": "http://localhost:4000/2018/08/27/Drive-Forensics-Reflection.html",
         "teaser":null}]
