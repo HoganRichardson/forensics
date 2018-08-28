@@ -4,6 +4,11 @@ permalink: /tools/
 ---
 This page contains a list of tools I have used/been exposed to throughout forensics, with a short description of the usefullness of each.
 
+## Fundamentals
+* `grep` 
+* `sed`
+* `tr`
+
 ## Command-line Utilities
 ### Vanilla Tools
 * `dd` performs a 1:1/byte-for-byte copy of a file/folder
