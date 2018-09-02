@@ -1,0 +1,446 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.12.1 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AT1 and Tooling Tips - Digital Forensics</title>
+<meta name="description" content="I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Digital Forensics">
+<meta property="og:title" content="AT1 and Tooling Tips">
+<meta property="og:url" content="http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html">
+
+
+  <meta property="og:description" content="I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-09-02T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Hogan Richardson",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Digital Forensics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/forensics/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/forensics/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/forensics/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/forensics/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/forensics/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/forensics/assets/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="/forensics/assets/images/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Digital Forensics</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tools/" >Tools</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        
+        <a href="https://hoganrichardson.github.io/forensics/">
+          <img src="/assets/images/logo-black.png" alt="Hogan Richardson" itemprop="image">
+        </a>
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <a href="https://hoganrichardson.github.io/forensics/"><h3 class="author__name" itemprop="name">Hogan Richardson</h3></a>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Student in cs6845 Digital Forensics, 18s2
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+		<a href="http://cse.unsw.edu.au/">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">UNSW | CSE</span>
+		</a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/HoganRichardson" itemprop="sameAs">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AT1 and Tooling Tips">
+    <meta itemprop="description" content="I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools.">
+    <meta itemprop="datePublished" content="02 September, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">AT1 and Tooling Tips
+</h1>
+          
+      <footer class="page__meta">
+        
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-02T00:00:00+10:00">02 September, 2018</time></p>
+        
+		<br>
+      </footer>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools.</p>
+
+<p>So, I began investigations by importing the image into Autopsy, however, what I didn’t realise was that when I imported the <code class="highlighter-rouge">.E01</code> file, it didn’t automatically run the injest modules, so I spent a lot of time trawlling through content that could have been picked out by autopsy: in particular, as you’ll see later on, trying to crack a zip file when there was another HTML file that I already had the password to! This, however, was a worthwhile lesson as it has reminded me to always know how the tools I’m using work before jumping in and trying things (I should have taken a more systematic approach).</p>
+
+<p>Having found an encrypted <code class="highlighter-rouge">.zip</code> archive, I thought that one potential way in would be to try and guess the password through brute force. I already had the basis of a multithreaded python script, so I modified it slightly to work with th <code class="highlighter-rouge">7z</code> command line tool. <a href="#crackpy">I have attached the script below</a>.</p>
+
+<p>It’s been an interesting experience looking into this image, and examining the various files and evidence. Putting a puzzle together like this is a very unique experience, and not one I’m that familiar with. Normally, my problem solving has a clear correctness (e.g. writing a program, solving a mathematical problem). There is usually a clear path to the end goal, and at each step, you can normally identify whether you are moving in the right direction. This investigation doesn’t have this supportive nature. The aim here is to gather and sift through a large amount of information in order to come up with some sort of conclusion or present some evidence that shows certain activity. I do like the openness of this challenge (as opposed to those which find flags), because it feels more <em>real</em> and there is less about the right/wrong approach, and more about the information discovered. In fact, I would go so far as to say that this is my most enjoyed security assessment task yet!</p>
+
+<h3 id="crackpy"><code class="highlighter-rouge">crack.py</code></h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Usage: python3 crack.py [passwordfile] [zipfile] [outdir] &lt;optional [startindex]&gt;"</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">outdir</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">passwords</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s">'latin-1'</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">makeRequest</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s">'7z'</span><span class="p">,</span> <span class="s">'-p'</span> <span class="o">+</span> <span class="n">password</span><span class="p">,</span> <span class="s">'-o'</span><span class="o">+</span><span class="n">outdir</span><span class="o">+</span><span class="s">'/'</span> <span class="o">+</span> <span class="n">password</span><span class="p">,</span> <span class="s">'x'</span><span class="p">,</span> <span class="nb">file</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="n">match</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">makeRequest</span><span class="p">,</span> <span class="n">passwords</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">passwords</span><span class="p">)),</span> <span class="n">start</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">passwords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">()</span></code></pre></figure>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#at1" class="page__taxonomy-item" rel="tag">at1</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#reflection" class="page__taxonomy-item" rel="tag">reflection</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#week06" class="page__taxonomy-item" rel="tag">week06</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2018/08/27/Drive-Forensics-Reflection.html" class="pagination--pager" title="Drive Forensics Reflection
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+    
+    
+      <li><a href="https://github.com/HoganRichardson"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Hogan Richardson. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+  </body>
+</html>

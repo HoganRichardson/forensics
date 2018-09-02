@@ -9,6 +9,11 @@ var store = [{
         "tags": ["challenge","journal","week03"],
         "url": "http://localhost:4000/2018/08/07/Week-03-Challenge-Part-1.html",
         "teaser":null},{
+        "title": "Acquisition",
+        "excerpt":"The Week 03 lecture focused on the methodology and approaches for acquisition of systems to be investigated, from covert operations to make copies, to intentionally overt operations. The key takeaway was the importance of following a strict methodology to ensure the forensic analysis remains valid (for example, following strict chain-of-custody...","categories": [],
+        "tags": ["reflection","week03"],
+        "url": "http://localhost:4000/2018/08/13/Acquisition.html",
+        "teaser":null},{
         "title": "Week 03 Challenge Part 2 Writeup",
         "excerpt":"Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial. hfsplusads0 Running ls -l@ (on macOS) reveals the existance of a ‘ResourceFork’ on the README.txt file. To reveal this flag,...","categories": [],
         "tags": ["challenge","writeup","week03"],
@@ -23,4 +28,9 @@ var store = [{
         "excerpt":"Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means. One of the things that stood out to me was the...","categories": [],
         "tags": ["reflection","week05"],
         "url": "http://localhost:4000/2018/08/27/Drive-Forensics-Reflection.html",
+        "teaser":null},{
+        "title": "AT1 and Tooling Tips",
+        "excerpt":"I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools. So, I began investigations...","categories": [],
+        "tags": ["week06","at1","reflection"],
+        "url": "http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html",
         "teaser":null}]
