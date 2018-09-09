@@ -12,3 +12,5 @@ I have located the GnuPG certificate/key file but did not find a use for this ke
 ## My Perspective
 This USB drive appears to have been used to share files/tools in relation to the so-called *"Operation P.O."*. We now know that P.O. stands for *Powerful Owl*. 
 There was hidden content on the USB used to share a Dropbox URL and tools for encryption and deletion of files. It appears that this USB was filled with 'junk' content to try and hide the true purpose of it's use to transfer files.
+
+Ultimately this USB drive shows activity of malicious behaviour and data transfer based on the use of data-hiding techniques that try and disguise and hide data from an uninformed third party. This would be effective had the USB fallen into the hands of someone unintended. 
