@@ -33,4 +33,14 @@ var store = [{
         "excerpt":"I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools. So, I began investigations...","categories": [],
         "tags": ["week06","at1","reflection"],
         "url": "http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html",
+        "teaser":null},{
+        "title": "AT1 USB Image Reflection",
+        "excerpt":"Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the injest modules helped, but didn’t reveal all...","categories": [],
+        "tags": ["at1","reflection"],
+        "url": "http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html",
+        "teaser":null},{
+        "title": "AT1 Windows Image Reflection",
+        "excerpt":"Overview The Windows image brought to light some ideas that were hinted at in the USB image. This Windows machine was used by multiple users, and they appeared to be involved in some way or another in suspicious activity. The USB drive can be confirmed as being attached to the...","categories": [],
+        "tags": ["at1","reflection"],
+        "url": "http://localhost:4000/2018/09/09/AT1-Windows-Image-Reflection.html",
         "teaser":null}]

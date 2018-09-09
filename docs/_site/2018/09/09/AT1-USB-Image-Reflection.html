@@ -9,38 +9,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Week 04 Challenge Journal - Digital Forensics</title>
-<meta name="description" content="Journal">
+<!-- begin _includes/seo.html --><title>AT1 USB Image Reflection - Digital Forensics</title>
+<meta name="description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the injest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Week 04 Challenge Journal">
-<meta property="og:url" content="http://localhost:4000/2018/08/19/Week-04-Challenge-Journal.html">
+<meta property="og:title" content="AT1 USB Image Reflection">
+<meta property="og:url" content="http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html">
 
 
-  <meta property="og:description" content="Journal">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-08-19T00:00:00+10:00">
+  <meta property="og:description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the injest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2018-09-09T00:00:00+10:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/2018/08/19/Week-04-Challenge-Journal.html">
+
+<link rel="canonical" href="http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html">
 
 
 
@@ -268,21 +268,21 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Week 04 Challenge Journal">
-    <meta itemprop="description" content="Journal">
-    <meta itemprop="datePublished" content="19 August, 2018">
+    <meta itemprop="headline" content="AT1 USB Image Reflection">
+    <meta itemprop="description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the injest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
+    <meta itemprop="datePublished" content="09 September, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Week 04 Challenge Journal
+          <h1 id="page-title" class="page__title" itemprop="headline">AT1 USB Image Reflection
 </h1>
           
       <footer class="page__meta">
         
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-19T00:00:00+10:00">19 August, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-09T00:00:00+10:00">09 September, 2018</time></p>
         
 		<br>
       </footer>
@@ -291,51 +291,18 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="journal">Journal</h2>
+        <h2 id="overview">Overview</h2>
+<p><img src="http://localhost:4000/assets/images/usb.png" alt="image-left" class="align-left" /> My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia <code class="highlighter-rouge">.html</code> files. Running the injest modules helped, but didn’t reveal all the interesting files (especially not ADS files).</p>
 
-<p><i class="fas fa-user-md"></i> Hogan Richardson</p>
+<p>Upon the completion of my investigation, I had found encrypted <code class="highlighter-rouge">.zip</code> files (one was disguised as a <code class="highlighter-rouge">.html</code> file), passwords and messages stored in unallocated space and in Alternate Data Streams of files.</p>
 
-<p><i class="far fa-clock"></i> 2018-08-19 (start)</p>
+<p>I have located the GnuPG certificate/key file but did not find a use for this key. It appears to be an encryption key, not a decryption key.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Job #</th>
-      <th>Journal Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>z5112937_c6845_0002</td>
-      <td>Evidence Analysis</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="my-perspective">My Perspective</h2>
+<p>This USB drive appears to have been used to share files/tools in relation to the so-called <em>“Operation P.O.”</em>. We now know that P.O. stands for <em>Powerful Owl</em>. 
+There was hidden content on the USB used to share a Dropbox URL and tools for encryption and deletion of files. It appears that this USB was filled with ‘junk’ content to try and hide the true purpose of it’s use to transfer files.</p>
 
-<h3 id="log">Log</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Time</th>
-      <th>Journal Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1740</td>
-      <td>Downloaded the file</td>
-    </tr>
-    <tr>
-      <td>1741</td>
-      <td>Unziped the file</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Ultimately this USB drive shows activity of malicious behaviour and data transfer based on the use of data-hiding techniques that try and disguise and hide data from an uninformed third party. This would be effective had the USB fallen into the hands of someone unintended.</p>
 
         
       </section>
@@ -356,15 +323,11 @@
     
       
       
-      <a href="/tags/#challenge" class="page__taxonomy-item" rel="tag">challenge</a><span class="sep">, </span>
+      <a href="/tags/#at1" class="page__taxonomy-item" rel="tag">at1</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#journal" class="page__taxonomy-item" rel="tag">journal</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#week04" class="page__taxonomy-item" rel="tag">week04</a>
+      <a href="/tags/#reflection" class="page__taxonomy-item" rel="tag">reflection</a>
     
     </span>
   </p>
@@ -379,11 +342,11 @@
       
   <nav class="pagination">
     
-      <a href="/2018/08/14/Week-03-Challenge-Part-2-Writeup.html" class="pagination--pager" title="Week 03 Challenge Part 2 Writeup
+      <a href="/2018/09/02/AT1-and-Tooling-Tips.html" class="pagination--pager" title="AT1 and Tooling Tips
 ">Previous</a>
     
     
-      <a href="/2018/08/27/Drive-Forensics-Reflection.html" class="pagination--pager" title="Drive Forensics Reflection
+      <a href="/2018/09/09/AT1-Windows-Image-Reflection.html" class="pagination--pager" title="AT1 Windows Image Reflection
 ">Next</a>
     
   </nav>
