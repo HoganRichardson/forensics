@@ -9,38 +9,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Week 03 Challenge Part 2 Writeup - Digital Forensics</title>
-<meta name="description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
+<!-- begin _includes/seo.html --><title>Introducing Memory Forensics - Digital Forensics</title>
+<meta name="description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Week 03 Challenge Part 2 Writeup">
-<meta property="og:url" content="http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html">
+<meta property="og:title" content="Introducing Memory Forensics">
+<meta property="og:url" content="http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html">
 
 
-  <meta property="og:description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-08-14T00:00:00+10:00">
+  <meta property="og:description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2018-09-16T00:00:00+10:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html">
+
+<link rel="canonical" href="http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html">
 
 
 
@@ -269,21 +269,21 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Week 03 Challenge Part 2 Writeup">
-    <meta itemprop="description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
-    <meta itemprop="datePublished" content="14 August, 2018">
+    <meta itemprop="headline" content="Introducing Memory Forensics">
+    <meta itemprop="description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
+    <meta itemprop="datePublished" content="16 September, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Week 03 Challenge Part 2 Writeup
+          <h1 id="page-title" class="page__title" itemprop="headline">Introducing Memory Forensics
 </h1>
           
       <footer class="page__meta">
         
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-14T00:00:00+10:00">14 August, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-16T00:00:00+10:00">16 September, 2018</time></p>
         
 		<br>
       </footer>
@@ -292,32 +292,15 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.</p>
+        <p>We’ve shifted gear away from drive forensics and into a much more volatile space: memory!</p>
 
-<p><strong>hfsplusads0</strong></p>
-<ul>
-  <li>Running <code class="highlighter-rouge">ls -l@</code> (on macOS) reveals the existance of a ‘ResourceFork’ on the README.txt file.</li>
-  <li>To reveal this flag, you need to leak the resource fork file like so: <code class="highlighter-rouge">cat README.txt/..namedfork/rsrce</code>
-    <ul>
-      <li>This flag was also revealed by simply running strings on the disk image</li>
-    </ul>
-  </li>
-  <li>Another way of finding this information is to use the <a href="https://github.com/xattr/xattr">xattr tool</a>.</li>
-</ul>
+<p>So far we have explored the similarities and differences between drive and memory forensics, including acquisition and analysis processes, as well as being introduced to some key tools that will assist with memory forensic investigations. I’m excited to delve into this new space and learn some different nd new concepts.</p>
 
-<p><strong>hfsplusads1</strong></p>
-<ul>
-  <li>Run <code class="highlighter-rouge">xattr -l ./*</code> to reveal a base64-encoded flag
-    <ul>
-      <li>In this scenario, this uses the Apple “Resource Fork”</li>
-    </ul>
-  </li>
-</ul>
+<p>We have explored how Windows processes are established and run, as well as the underlying hierarchy and data structures that the OS maintains. This is something new that I wasn’t aware of, but there is also an air of familiarality from the Operating Systems course as we look at the way processes are run in a system.</p>
 
-<p><strong>hfsplusads2</strong></p>
-<ul>
-  <li>This is the SVG challenge. There are two files in the alternate data stream, which, when combined, form a new svg containing the flag</li>
-</ul>
+<p><em>It can hide, but it has to run!</em></p>
+
+<p>Looking at malware will be an interesting topic, and certainly will reveal various hiding techniques in memory. I have set up the <a href="https://github.com/fireeye/flare-vm"><strong>Fireye Flare VM</strong></a> on my machine, which has a variety of pre-installed tools that I’m sure will become useful. Tim mentioned a ‘cold boot’ attack, but didn’t go into detail. After some <a href="https://en.wikipedia.org/wiki/Cold_boot_attack">extra reading</a>, it reveals a very interesting technique that could be potentially useful for recovering memory from a machine that has been powered off.</p>
 
         
       </section>
@@ -338,15 +321,11 @@
     
       
       
-      <a href="/tags/#challenge" class="page__taxonomy-item" rel="tag">challenge</a><span class="sep">, </span>
+      <a href="/tags/#reflection" class="page__taxonomy-item" rel="tag">reflection</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#week03" class="page__taxonomy-item" rel="tag">week03</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#writeup" class="page__taxonomy-item" rel="tag">writeup</a>
+      <a href="/tags/#week8" class="page__taxonomy-item" rel="tag">week8</a>
     
     </span>
   </p>
@@ -361,11 +340,11 @@
       
   <nav class="pagination">
     
-      <a href="/2018/08/13/Acquisition.html" class="pagination--pager" title="Acquisition
+      <a href="/2018/09/09/AT1-Windows-Image-Reflection.html" class="pagination--pager" title="AT1 Windows Image Reflection
 ">Previous</a>
     
     
-      <a href="/2018/08/19/Week-04-Challenge-Journal.html" class="pagination--pager" title="Week 04 Challenge Journal
+      <a href="/2018/09/17/2018-09-10-AT1-A-Postmortem.html" class="pagination--pager" title="
 ">Next</a>
     
   </nav>
