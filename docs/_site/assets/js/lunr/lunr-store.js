@@ -35,7 +35,7 @@ var store = [{
         "url": "http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html",
         "teaser":null},{
         "title": "AT1 USB Image Reflection",
-        "excerpt":"Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the injest modules helped, but didn’t reveal all...","categories": [],
+        "excerpt":"Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the ingest modules helped, but didn’t reveal all...","categories": [],
         "tags": ["at1","reflection"],
         "url": "http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html",
         "teaser":null},{

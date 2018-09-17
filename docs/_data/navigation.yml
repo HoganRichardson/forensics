@@ -2,5 +2,8 @@
 main:
     - title: "Blog"
       url: /blog/
+    - title: "Extended"
+      url: /extended/
     - title: "Tools"
       url: /tools/
+
