@@ -1,6 +1,6 @@
 ---
 title: AT1 and Tooling Tips
-tags: week06 at1 reflection
+tags: week06 AT1 reflection
 ---
 I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools. 
 
