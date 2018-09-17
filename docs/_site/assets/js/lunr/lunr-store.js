@@ -44,13 +44,13 @@ var store = [{
         "tags": ["AT1","reflection"],
         "url": "http://localhost:4000/2018/09/09/AT1-Windows-Image-Reflection.html",
         "teaser":null},{
+        "title": "AT1: A Postmortem",
+        "excerpt":"After submitting the investigation journals for AT1, I have been reflecting a lot about the content of the images, and the way in which I approached the investigation. One of the things that was difficult was working out where to start and how to progress through the image, especially the...","categories": [],
+        "tags": ["AT1","reflection"],
+        "url": "http://localhost:4000/2018/09/10/AT1-A-Postmortem.html",
+        "teaser":null},{
         "title": "Introducing Memory Forensics",
         "excerpt":"We’ve shifted gear away from drive forensics and into a much more volatile space: memory! So far we have explored the similarities and differences between drive and memory forensics, including acquisition and analysis processes, as well as being introduced to some key tools that will assist with memory forensic investigations....","categories": [],
         "tags": ["week8","reflection"],
         "url": "http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html",
-        "teaser":null},{
-        "title": null,
-        "excerpt":"After submitting the investigation journals for AT1, I have been reflecting a lot about the content of the images, and the way in which I approached the investigation. One of the things that was difficult was working out where to start and how to progress through the image, especially the...","categories": [],
-        "tags": null,
-        "url": "http://localhost:4000/2018/09/17/2018-09-10-AT1-A-Postmortem.html",
         "teaser":null}]
