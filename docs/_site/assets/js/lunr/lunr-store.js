@@ -31,16 +31,26 @@ var store = [{
         "teaser":null},{
         "title": "AT1 and Tooling Tips",
         "excerpt":"I have been working on image01 of assessment task 1 this week, and throuhgout the course of investigation, I have learned a bit more about how some key tools work, developed some small scripts and wasted some time because of lack of understanding of some tools. So, I began investigations...","categories": [],
-        "tags": ["week06","at1","reflection"],
+        "tags": ["week06","AT1","reflection"],
         "url": "http://localhost:4000/2018/09/02/AT1-and-Tooling-Tips.html",
         "teaser":null},{
         "title": "AT1 USB Image Reflection",
         "excerpt":"Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the ingest modules helped, but didn’t reveal all...","categories": [],
-        "tags": ["at1","reflection"],
+        "tags": ["AT1","reflection"],
         "url": "http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html",
         "teaser":null},{
         "title": "AT1 Windows Image Reflection",
         "excerpt":"Overview The Windows image brought to light some ideas that were hinted at in the USB image. This Windows machine was used by multiple users, and they appeared to be involved in some way or another in suspicious activity. The USB drive can be confirmed as being attached to the...","categories": [],
-        "tags": ["at1","reflection"],
+        "tags": ["AT1","reflection"],
         "url": "http://localhost:4000/2018/09/09/AT1-Windows-Image-Reflection.html",
+        "teaser":null},{
+        "title": "AT1: A Postmortem",
+        "excerpt":"After submitting the investigation journals for AT1, I have been reflecting a lot about the content of the images, and the way in which I approached the investigation. One of the things that was difficult was working out where to start and how to progress through the image, especially the...","categories": [],
+        "tags": ["AT1","reflection"],
+        "url": "http://localhost:4000/2018/09/10/AT1-A-Postmortem.html",
+        "teaser":null},{
+        "title": "Introducing Memory Forensics",
+        "excerpt":"We’ve shifted gear away from drive forensics and into a much more volatile space: memory! So far we have explored the similarities and differences between drive and memory forensics, including acquisition and analysis processes, as well as being introduced to some key tools that will assist with memory forensic investigations....","categories": [],
+        "tags": ["week8","reflection"],
+        "url": "http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html",
         "teaser":null}]

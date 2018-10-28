@@ -9,38 +9,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Drive Forensics Reflection - Digital Forensics</title>
-<meta name="description" content="Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means.">
+<!-- begin _includes/seo.html --><title>Introducing Memory Forensics - Digital Forensics</title>
+<meta name="description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Digital Forensics">
-<meta property="og:title" content="Drive Forensics Reflection">
-<meta property="og:url" content="http://localhost:4000/2018/08/27/Drive-Forensics-Reflection.html">
+<meta property="og:title" content="Introducing Memory Forensics">
+<meta property="og:url" content="http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html">
 
 
-  <meta property="og:description" content="Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-08-27T00:00:00+10:00">
+  <meta property="og:description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2018-09-16T00:00:00+10:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/2018/08/27/Drive-Forensics-Reflection.html">
+
+<link rel="canonical" href="http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html">
 
 
 
@@ -269,21 +269,21 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Drive Forensics Reflection">
-    <meta itemprop="description" content="Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means.">
-    <meta itemprop="datePublished" content="27 August, 2018">
+    <meta itemprop="headline" content="Introducing Memory Forensics">
+    <meta itemprop="description" content="We’ve shifted gear away from drive forensics and into a much more volatile space: memory!">
+    <meta itemprop="datePublished" content="16 September, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Drive Forensics Reflection
+          <h1 id="page-title" class="page__title" itemprop="headline">Introducing Memory Forensics
 </h1>
           
       <footer class="page__meta">
         
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-27T00:00:00+10:00">27 August, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-16T00:00:00+10:00">16 September, 2018</time></p>
         
 		<br>
       </footer>
@@ -292,20 +292,15 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Over the last two weeks we’ve been delving heavily into <strong>drive</strong> forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means.</p>
+        <p>We’ve shifted gear away from drive forensics and into a much more volatile space: memory!</p>
 
-<p>One of the things that stood out to me was the fact that ‘every action has a consequence’, so even if something has been removed off a system, it may still be possible to gain an insight into what the user has been doing, and whether any malicious behaviour has been conducted. For example, even if <em>known bad</em> data can’t be recovered from a system, the presence of tools that allow users to write to unformatted parts of a drive could indicate that the user has been trying to hide something. This is why the timeline of events is so important, and examining all events that occurred in the critical period can give a significant insight into what activity might have gone on.</p>
+<p>So far we have explored the similarities and differences between drive and memory forensics, including acquisition and analysis processes, as well as being introduced to some key tools that will assist with memory forensic investigations. I’m excited to delve into this new space and learn some different nd new concepts.</p>
 
-<h3 id="top-ways-of-stealing-company-data">Top ways of stealing Company Data</h3>
-<p>This brings me on to one aspect that was pointed out in the lecture, but not examined in detail: the top three ways in which employees steal company data. These are:</p>
+<p>We have explored how Windows processes are established and run, as well as the underlying hierarchy and data structures that the OS maintains. This is something new that I wasn’t aware of, but there is also an air of familiarality from the Operating Systems course as we look at the way processes are run in a system.</p>
 
-<ol>
-  <li>USB Drive</li>
-  <li>Email</li>
-  <li>Cloud</li>
-</ol>
+<p><em>It can hide, but it has to run!</em></p>
 
-<p>This has some interesting consequences, especially considering it from an IT management point of view. Consider this: You have deployed security software on your managed devices to disallow all USB devices by default (I actually came across this scenario recently). You’ve also deployed an encryption mechanism on your email server so that attachments can only be unlocked with specific permissions. None of this stops an employee from visiting the website of their favourite cloud storage provider or web-based email client and uploading some files! It would be infeasible (and potentially hindering to users) to blacklist every cloud storage site, so the last two are quite difficult to prevent. Whilst forensics often deals with the aftermath of something being (or alleged being) stolen, I think it’s also important to consider what IT managers might do in prevention efforts.</p>
+<p>Looking at malware will be an interesting topic, and certainly will reveal various hiding techniques in memory. I have set up the <a href="https://github.com/fireeye/flare-vm"><strong>Fireye Flare VM</strong></a> on my machine, which has a variety of pre-installed tools that I’m sure will become useful. Tim mentioned a ‘cold boot’ attack, but didn’t go into detail. After some <a href="https://en.wikipedia.org/wiki/Cold_boot_attack">extra reading</a>, it reveals a very interesting technique that could be potentially useful for recovering memory from a machine that has been powered off.</p>
 
         
       </section>
@@ -330,7 +325,7 @@
     
       
       
-      <a href="/tags/#week05" class="page__taxonomy-item" rel="tag">week05</a>
+      <a href="/tags/#week8" class="page__taxonomy-item" rel="tag">week8</a>
     
     </span>
   </p>
@@ -345,12 +340,11 @@
       
   <nav class="pagination">
     
-      <a href="/2018/08/19/Week-04-Challenge-Journal.html" class="pagination--pager" title="Week 04 Challenge Journal
+      <a href="/2018/09/10/AT1-A-Postmortem.html" class="pagination--pager" title="AT1: A Postmortem
 ">Previous</a>
     
     
-      <a href="/2018/09/02/AT1-and-Tooling-Tips.html" class="pagination--pager" title="AT1 and Tooling Tips
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 

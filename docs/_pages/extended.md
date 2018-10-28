@@ -7,9 +7,9 @@ toc: true
 header:
   overlay_color: "#aaa"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/digital_forensics_banner.jpg
-excerpt: "Welcome to my portfolio of work from COMP6845 Digital Forensics, Semester 2 2018. This site includes blog posts and related pages developed throughout the semester."
+  overlay_image: /assets/images/cloud_banner.jpg
+excerpt: "Welcome to my Extended Research topic for COMP6845"
 intro: 
-- excerpt: 'If you would like to view the source of this page, or to view commits to verify dates published, you can visit the [GitHub repository](<https://github.com/HoganRichardson/forensics>). This page lies under the `/docs` directory. If you have any further queries, please [raise an issue](<https://github.com/HoganRichardson/forensics/issues/>).'
+- excerpt: 'I will be carrying out investigations into the forensic artefacts created by consumer cloud-storage software solutions, as well as developing tools and plugins to automate the process of extracting data and metadata from installations of cloud storage solutions'
 ---
 {% include feature_row id="intro" type="center" %}

@@ -1,6 +1,6 @@
 ---
 tags: AT1 reflection
-title: AT1: A Postmortem
+title: "AT1: A Postmortem"
 ---
 After submitting the investigation journals for AT1, I have been reflecting a lot about the content of the images, and the way in which I approached the investigation. One of the things that was difficult was working out where to start and how to progress through the image, especially the larger Windows image. It's difficult to know where to start lookinn. I had a preconceived idea of what may lie on the disk, a notion of the general Windows directory structure and some ideas of where to look based on the content in lectures, however that still didn't give me a starting point. When I started working on the disk, I began by running the Autopsy ingest modules, which seemed like a logical progression, and revealed some interesting and noteworthy files. I then proceeded to try and build up a picture of the computer details (OS version, number of users, company ownership etc.). This eventually lead me down other paths, and as I investigated various aspects, I was faced with dilemmas of which path to take to explore things further. This meant that I had to keep trying to come back and look at other aspects around a particular issue, switch back to the other image to check something, and so on. In the end, it just became a little messy and confused. 
 
