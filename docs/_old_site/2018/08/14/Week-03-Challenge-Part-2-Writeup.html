@@ -1,0 +1,430 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Week 03 Challenge Part 2 Writeup - Digital Forensics</title>
+<meta name="description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Digital Forensics">
+<meta property="og:title" content="Week 03 Challenge Part 2 Writeup">
+<meta property="og:url" content="http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html">
+
+
+  <meta property="og:description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-08-14T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Hogan Richardson",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Digital Forensics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/forensics/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/forensics/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/forensics/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/forensics/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/forensics/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/forensics/assets/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="/forensics/assets/images/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Digital Forensics</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/extended/" >Extended</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tools/" >Tools</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        
+        <a href="https://hoganrichardson.github.io/forensics/">
+          <img src="/assets/images/logo-black.png" alt="Hogan Richardson" itemprop="image">
+        </a>
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <a href="https://hoganrichardson.github.io/forensics/"><h3 class="author__name" itemprop="name">Hogan Richardson</h3></a>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Student in cs6845 Digital Forensics, 18s2
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+		<a href="http://cse.unsw.edu.au/">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">UNSW | CSE</span>
+		</a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/HoganRichardson" itemprop="sameAs">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Week 03 Challenge Part 2 Writeup">
+    <meta itemprop="description" content="Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.">
+    <meta itemprop="datePublished" content="14 August, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Week 03 Challenge Part 2 Writeup
+</h1>
+          
+      <footer class="page__meta">
+        
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-08-14T00:00:00+10:00">14 August, 2018</time></p>
+        
+		<br>
+      </footer>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Below is a writeup of solutions to Alternate Data Stream challenges from week03. I didn’t get time to try these myself, but here are some notes from the follow-up tutorial.</p>
+
+<p><strong>hfsplusads0</strong></p>
+<ul>
+  <li>Running <code class="highlighter-rouge">ls -l@</code> (on macOS) reveals the existance of a ‘ResourceFork’ on the README.txt file.</li>
+  <li>To reveal this flag, you need to leak the resource fork file like so: <code class="highlighter-rouge">cat README.txt/..namedfork/rsrce</code>
+    <ul>
+      <li>This flag was also revealed by simply running strings on the disk image</li>
+    </ul>
+  </li>
+  <li>Another way of finding this information is to use the <a href="https://github.com/xattr/xattr">xattr tool</a>.</li>
+</ul>
+
+<p><strong>hfsplusads1</strong></p>
+<ul>
+  <li>Run <code class="highlighter-rouge">xattr -l ./*</code> to reveal a base64-encoded flag
+    <ul>
+      <li>In this scenario, this uses the Apple “Resource Fork”</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>hfsplusads2</strong></p>
+<ul>
+  <li>This is the SVG challenge. There are two files in the alternate data stream, which, when combined, form a new svg containing the flag</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#challenge" class="page__taxonomy-item" rel="tag">challenge</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#week03" class="page__taxonomy-item" rel="tag">week03</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#writeup" class="page__taxonomy-item" rel="tag">writeup</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2018/08/13/Acquisition.html" class="pagination--pager" title="Acquisition
+">Previous</a>
+    
+    
+      <a href="/2018/08/19/Week-04-Challenge-Journal.html" class="pagination--pager" title="Week 04 Challenge Journal
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+    
+    
+      <li><a href="https://github.com/HoganRichardson/forensics"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Hogan Richardson.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+  </body>
+</html>

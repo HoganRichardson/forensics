@@ -1,0 +1,412 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AT1 USB Image Reflection - Digital Forensics</title>
+<meta name="description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the ingest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Digital Forensics">
+<meta property="og:title" content="AT1 USB Image Reflection">
+<meta property="og:url" content="http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html">
+
+
+  <meta property="og:description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the ingest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-09-09T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/2018/09/09/AT1-USB-Image-Reflection.html">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Hogan Richardson",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Digital Forensics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/forensics/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/forensics/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/forensics/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/forensics/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/forensics/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/forensics/assets/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="/forensics/assets/images/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Digital Forensics</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/extended/" >Extended</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tools/" >Tools</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        
+        <a href="https://hoganrichardson.github.io/forensics/">
+          <img src="/assets/images/logo-black.png" alt="Hogan Richardson" itemprop="image">
+        </a>
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <a href="https://hoganrichardson.github.io/forensics/"><h3 class="author__name" itemprop="name">Hogan Richardson</h3></a>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Student in cs6845 Digital Forensics, 18s2
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+		<a href="http://cse.unsw.edu.au/">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">UNSW | CSE</span>
+		</a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/HoganRichardson" itemprop="sameAs">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AT1 USB Image Reflection">
+    <meta itemprop="description" content="Overview My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia .html files. Running the ingest modules helped, but didn’t reveal all the interesting files (especially not ADS files).">
+    <meta itemprop="datePublished" content="09 September, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">AT1 USB Image Reflection
+</h1>
+          
+      <footer class="page__meta">
+        
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-09T00:00:00+10:00">09 September, 2018</time></p>
+        
+		<br>
+      </footer>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="overview">Overview</h2>
+<p><img src="http://localhost:4000/assets/images/usb.png" alt="image-left" class="align-left" /> My first approach with the USB drive was to open the image in Autopsy, and from there get a feel for the content. There were several files on the USB drive, including a needle/haystack type search through Wikipedia <code class="highlighter-rouge">.html</code> files. Running the ingest modules helped, but didn’t reveal all the interesting files (especially not ADS files).</p>
+
+<p>Upon the completion of my investigation, I had found encrypted <code class="highlighter-rouge">.zip</code> files (one was disguised as a <code class="highlighter-rouge">.html</code> file), passwords and messages stored in unallocated space and in Alternate Data Streams of files.</p>
+
+<p>I have located the GnuPG certificate/key file but did not find a use for this key. It appears to be an encryption key, not a decryption key.</p>
+
+<h2 id="my-perspective">My Perspective</h2>
+<p>This USB drive appears to have been used to share files/tools in relation to the so-called <em>“Operation P.O.”</em>. We now know that P.O. stands for <em>Powerful Owl</em>. 
+There was hidden content on the USB used to share a Dropbox URL and tools for encryption and deletion of files. It appears that this USB was filled with ‘junk’ content to try and hide the true purpose of it’s use to transfer files.</p>
+
+<p>Ultimately this USB drive shows activity of malicious behaviour and data transfer based on the use of data-hiding techniques that try and disguise and hide data from an uninformed third party. This would be effective had the USB fallen into the hands of someone unintended.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#at1" class="page__taxonomy-item" rel="tag">AT1</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#reflection" class="page__taxonomy-item" rel="tag">reflection</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2018/09/02/AT1-and-Tooling-Tips.html" class="pagination--pager" title="AT1 and Tooling Tips
+">Previous</a>
+    
+    
+      <a href="/2018/09/09/AT1-Windows-Image-Reflection.html" class="pagination--pager" title="AT1 Windows Image Reflection
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+    
+    
+      <li><a href="https://github.com/HoganRichardson/forensics"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Hogan Richardson.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+  </body>
+</html>

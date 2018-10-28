@@ -19,11 +19,6 @@ var store = [{
         "tags": ["challenge","writeup","week03"],
         "url": "http://localhost:4000/2018/08/14/Week-03-Challenge-Part-2-Writeup.html",
         "teaser":null},{
-        "title": "Week 04 Challenge Journal",
-        "excerpt":"Journal  Hogan Richardson  2018-08-19 (start)             Job #      Journal Type                  z5112937_c6845_0002      Evidence Analysis      Log             Time      Journal Notes                  1740      Downloaded the file              1741      Unziped the file                            ","categories": [],
-        "tags": ["week04","challenge","journal"],
-        "url": "http://localhost:4000/2018/08/19/Week-04-Challenge-Journal.html",
-        "teaser":null},{
         "title": "Drive Forensics Reflection",
         "excerpt":"Over the last two weeks we’ve been delving heavily into drive forensics, examining ways of recovering deleted files on different file systems, and how data can be hidden in areas on the drive that aren’t accessible through normal means. One of the things that stood out to me was the...","categories": [],
         "tags": ["reflection","week05"],
@@ -53,4 +48,9 @@ var store = [{
         "excerpt":"We’ve shifted gear away from drive forensics and into a much more volatile space: memory! So far we have explored the similarities and differences between drive and memory forensics, including acquisition and analysis processes, as well as being introduced to some key tools that will assist with memory forensic investigations....","categories": [],
         "tags": ["week8","reflection"],
         "url": "http://localhost:4000/2018/09/16/Introducing-Memory-Forensics.html",
+        "teaser":null},{
+        "title": "Reflection on the Course",
+        "excerpt":"The last four weeks of semester have been extremely busy, and I haven’t had a chance to do regular reflections. Additionally, I was focusing on my extended research project, so I didn’t do as much work on the normal coursework during that time. The course is drawing to a close,...","categories": [],
+        "tags": ["reflection","week13"],
+        "url": "http://localhost:4000/2018/10/28/Final-Reflection.html",
         "teaser":null}]
